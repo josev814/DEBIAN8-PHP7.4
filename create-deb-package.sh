@@ -23,6 +23,6 @@ do
     # Deb 8 package is 1.17
     #dpkg-deb --build --root-owner-group ${package_dir}
     dpkg-deb --build ${package_dir}
-    mv "${package_dir}.deb" builds/
+    mv "${package_dir//\//}.deb" builds/
   fi
 done
