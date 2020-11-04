@@ -13,17 +13,16 @@ php_version=7.4
 #tar -czvf ../build/control.tar.gz ./*
 #cd ../
 
-cd builds || exit
-pwd
-for package_dir in $(ls -d ../*/);
+for package_dir in $(ls -d */);
 do
-  if [ "${package_dir}" != '../builds/' ]
+  if [ "${package_dir}" != 'builds/' ]
   then
     echo "Packing up ${package_dir}"
-    chmod 0755 -R ${package_dir}/DEBIAN
+    chmod 0775 -R ${package_dir}
     # the addition of --root-owner-group was added in dpkg-dev 1.19
     # Deb 8 package is 1.17
     #dpkg-deb --build --root-owner-group ${package_dir}
     dpkg-deb --build ${package_dir}
+    mv "${package_dir}.deb" builds/
   fi
 done
