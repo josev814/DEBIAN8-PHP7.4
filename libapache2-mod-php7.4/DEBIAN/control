@@ -4,7 +4,7 @@ Version: 7.4.11-1+0~20201104+debian8
 Architecture: amd64
 Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
 Installed-Size: 4713
-Depends: libmagic1, libpcre3 (>= 2:8.41), mime-support, php7.4-cli, php7.4-common (= 7.4.11-1~20201104+debian8), php7.4-json, php7.4-opcache, tzdata, ucf, apache2-api-20120211, apache2-bin (>= 2.4.16), libargon2-1 (>= 0~20171227), libc6 (>= 2.15), libsodium23 (>= 1.0.14), libssl1.1 (>= 1.1.0), libxml2 (>= 2.8.0), zlib1g (>= 1:1.1.4)
+Depends: libmagic1, libpcre3 (>= 2:8.35), mime-support, php7.4-cli, php7.4-common (= 7.4.11-1~20201104+debian8), php7.4-json, php7.4-opcache, tzdata, ucf, apache2-api-20120211, apache2-bin (>= 2.4.10), libargon2-0 (>= 0~20160821), libc6 (>= 2.15), libsodium18 (>= 1.0.11), libssl1.1 (>= 1.0.1), libxml2 (>= 2.8.0), zlib1g (>= 1:1.1.4)
 Recommends: apache2
 Suggests: php-pear
 Provides: libapache2-mod-php, phpapi-20170718
