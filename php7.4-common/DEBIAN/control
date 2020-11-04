@@ -1,0 +1,18 @@
+Package: php7.4-common
+Source: php7.4
+Version: 7.4.11-1~20201104+debian8
+Architecture: amd64
+Maintainer: Debian PHP Maintainers <team+pkg-php@tracker.debian.org>
+Installed-Size: 6117
+Depends: php-common (>= 1:73), ucf, libc6 (>= 2.15), libssl1.0 (>= 1.0.1)
+Breaks: php7.4-sodium
+Provides: php-calendar, php-ctype, php-exif, php-fileinfo, php-ftp, php-iconv, php-pdo, php-phar, php-posix, php-shmop, php-sockets, php-sysvmsg, php-sysvsem, php-sysvshm, php-tokenizer, php7.4-calendar, php7.4-ctype, php7.4-exif, php7.4-fileinfo, php7.4-ftp, php7.4-gettext, php7.4-iconv, php7.4-pdo, php7.4-phar, php7.4-posix, php7.4-shmop, php7.4-sockets, php7.4-sysvmsg, php7.4-sysvsem, php7.4-sysvshm, php7.4-tokenizer
+Section: php
+Priority: optional
+Homepage: http://www.php.net/
+Description: documentation, examples and common module for PHP
+ This package provides the documentation, examples and common module(s) for PHP.
+ .
+ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
+ open source general-purpose scripting language that is especially suited
+ for web development and can be embedded into HTML.
