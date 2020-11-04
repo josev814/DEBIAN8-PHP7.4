@@ -21,6 +21,9 @@ do
   then
     echo "Packing up ${package_dir}"
     chmod 0755 -R ${package_dir}/DEBIAN
-    dpkg-deb --build --root-owner-group ${package_dir}
+    # the addition of --root-owner-group was added in dpkg-dev 1.19
+    # Deb 8 package is 1.17
+    #dpkg-deb --build --root-owner-group ${package_dir}
+    dpkg-deb --build ${package_dir}
   fi
 done
