@@ -1,0 +1,4 @@
+# Dependencies to build
+dpkg-dev
+
+Run the create-deb-package in each directory to create the required deb packages you need
