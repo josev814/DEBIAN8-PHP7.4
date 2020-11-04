@@ -22,6 +22,12 @@ do
     # the addition of --root-owner-group was added in dpkg-dev 1.19
     # Deb 8 package is 1.17
     #dpkg-deb --build --root-owner-group ${package_dir}
+    if [[ "${package_dir}" == 'libapache2-mod-php7.2' ]]
+    then
+      cd "${package_dir}"
+      ln -s php${php_version}-common usr/share/doc/libapache2-mod-php${php_version}
+      cd ../
+    fi
     dpkg-deb --build ${package_dir}
     mv "${package_dir//\//}.deb" builds/
   fi
