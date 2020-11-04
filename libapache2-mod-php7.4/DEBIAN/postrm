@@ -1,0 +1,53 @@
+#!/bin/sh
+
+set -e
+
+php_rm_version=7.4
+
+php_enable() { return 0; }
+
+if [ "$1" = "purge" ]; then
+    phpini=/etc/php/${php_rm_version}/apache2/php.ini
+    # remove the flag to remember the original state
+    if [ -e /etc/php/${php_rm_version}/apache2/.start ]; then
+        rm -f /etc/php/${php_rm_version}/apache2/.start
+    fi
+    for ext in '~' '%' .bak .ucf-new .ucf-old .ucf-dist;  do
+        rm -f $phpini$ext
+    done
+    rm -f $phpini
+    if which ucf >/dev/null; then
+        ucf --purge $phpini
+    fi
+    if which ucfr >/dev/null; then
+        ucfr --purge libapache2-mod-php${php_rm_version} $phpini
+    fi
+
+    for dir in \
+        /etc/php/${php_rm_version}/apache2/conf.d \
+        /etc/php/${php_rm_version}/apache2 \
+        /etc/php/${php_rm_version} \
+        /etc/php;
+    do
+        if [ -d $dir ]; then
+            rmdir --ignore-fail-on-non-empty $dir
+        fi
+    done
+fi
+
+# Automatically added by dh_apache2
+if [ "$1" = "purge" ] ; then
+        if php_enable; then
+                if [ -e /usr/share/apache2/apache2-maintscript-helper ] ; then
+                        . /usr/share/apache2/apache2-maintscript-helper
+
+                        for conf in php${php_rm_version}  ; do
+                                apache2_invoke dismod $conf  || exit $?
+                        done
+                fi
+        fi
+fi
+# End automatically added section
+
+
+exit 0
